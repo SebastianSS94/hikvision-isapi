@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 const (
@@ -75,13 +76,14 @@ type Client struct {
 
 // NewClient is a constructor for the Client object.
 func NewClient(host, username, password string) (*Client, error) {
-	u, err := url.Parse("http://" + host)
+	u, err := url.Parse("http://" + username + ":" + password + "@" + host)
 	if err != nil {
 		return nil, err
 	}
 	return &Client{
 		Client: &http.Client{
 			Transport: NewAuthTransport(username, password),
+			Timeout:   1 * time.Second,
 		},
 		BaseURL: u.String(),
 	}, nil
