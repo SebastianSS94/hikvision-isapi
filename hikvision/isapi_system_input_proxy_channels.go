@@ -32,7 +32,7 @@ type SourceInputPortDescriptor struct {
 	DeviceID             int    `xml:"deviceID"`
 }
 
-func (c *Client) InputProxyChannels() (resp *InputProxyChannelList, err error) {
+func (c *Client) GetInputProxyChannels() (resp *InputProxyChannelList, err error) {
 	path := "/ISAPI/ContentMgmt/InputProxy/channels"
 	u, err := url.Parse(c.BaseURL + path)
 	if err != nil {
