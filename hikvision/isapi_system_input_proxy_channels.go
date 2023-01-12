@@ -6,19 +6,19 @@ import (
 )
 
 type InputProxyChannelList struct {
-	InputProxyChannel *InputProxyChannel `xml:"InputProxyChannel"`
+	InputProxyChannel []InputProxyChannel `xml:"InputProxyChannel"`
 }
 
 type InputProxyChannel struct {
-	XMLName                      xml.Name                   `xml:"InputProxyChannel,omitempty"`
-	Id                           int                        `xml:"id"`
-	Name                         string                     `xml:"name"`
-	SourceInputPortDescriptor    *SourceInputPortDescriptor `xml:"SourceInputPortDescriptor"`
-	CertificateValidationEnabled bool                       `xml:"certificateValidationEnabled"`
-	DefaultAdminPortEnabled      bool                       `xml:"defaultAdminPortEnabled"`
-	EnableAnr                    bool                       `xml:"enableAnr"`
-	EnableTiming                 bool                       `xml:"enableTiming"`
-	DevIndex                     string                     `xml:"devIndex"`
+	XMLName                      xml.Name                    `xml:"InputProxyChannel,omitempty"`
+	Id                           int                         `xml:"id"`
+	Name                         string                      `xml:"name"`
+	SourceInputPortDescriptor    []SourceInputPortDescriptor `xml:"sourceInputPortDescriptor"`
+	CertificateValidationEnabled bool                        `xml:"certificateValidationEnabled"`
+	DefaultAdminPortEnabled      bool                        `xml:"defaultAdminPortEnabled"`
+	EnableAnr                    bool                        `xml:"enableAnr"`
+	EnableTiming                 bool                        `xml:"enableTiming"`
+	DevIndex                     string                      `xml:"devIndex"`
 }
 
 type SourceInputPortDescriptor struct {
